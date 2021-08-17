@@ -96,6 +96,8 @@ if __name__ == '__main__':
 
     # testing begin
     for i, img_name in enumerate(test_dataset):
+        if '.jpg' not in img_name:
+            continue
         image_path = testset_folder + img_name
         img_raw = cv2.imread(image_path, cv2.IMREAD_COLOR)
         img = np.float32(img_raw)

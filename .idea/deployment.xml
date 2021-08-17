@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="PublishConfigData">
+    <serverData>
+      <paths name="root@10.8.1.12:10094">
+        <serverdata>
+          <mappings>
+            <mapping deploy="/data/tomzhai/face_detect/Pytorch_Retinaface" local="$PROJECT_DIR$" />
+          </mappings>
+        </serverdata>
+      </paths>
+    </serverData>
+  </component>
+</project>

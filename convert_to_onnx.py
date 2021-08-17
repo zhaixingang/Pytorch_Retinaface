@@ -17,9 +17,9 @@ parser = argparse.ArgumentParser(description='Test')
 parser.add_argument('-m', '--trained_model', default='./weights/mobilenet0.25_Final.pth',
                     type=str, help='Trained state_dict file path to open')
 parser.add_argument('--network', default='mobile0.25', help='Backbone network mobile0.25 or resnet50')
-parser.add_argument('--long_side', default=640, help='when origin_size is false, long_side is scaled size(320 or 640 for long side)')
+parser.add_argument('--long_side', type=int, default=640, help='when origin_size is false, long_side is scaled size(320 or 640 for long side)')
 parser.add_argument('--cpu', action="store_true", default=True, help='Use cpu inference')
-
+parser.add_argument('--output_onnx', default="./onnx/mobilenet0.25_Final.onnx", help='output onnx model path')
 args = parser.parse_args()
 
 
@@ -76,13 +76,13 @@ if __name__ == '__main__':
     net = net.to(device)
 
     # ------------------------ export -----------------------------
-    output_onnx = 'FaceDetector.onnx'
+    output_onnx = args.output_onnx
     print("==> Exporting model to ONNX format at '{}'".format(output_onnx))
     input_names = ["input0"]
-    output_names = ["output0"]
+    output_names = ["output0","output1","output2"]
     inputs = torch.randn(1, 3, args.long_side, args.long_side).to(device)
 
-    torch_out = torch.onnx._export(net, inputs, output_onnx, export_params=True, verbose=False,
+    torch_out = torch.onnx._export(net, inputs, output_onnx, opset_version=9, export_params=True, verbose=False,
                                    input_names=input_names, output_names=output_names)
 
 
