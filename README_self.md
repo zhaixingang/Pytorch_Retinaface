@@ -5,10 +5,10 @@
 在dgx1（10.8.1.12）上运行docker命令如下：
 
 ```
-nvidia-docker run --name tomzhai_pytorcj_gpu -it -v /data:/data -v /dcache:/dcache -p 10094:22 pytorch/pytorch:1.6.0-cuda10.1-cudnn7-devel /bin/bash
+nvidia-docker run --name tomzhai_pytorch_gpu -it -v /data:/data -v /dcache:/dcache -p 10094:22 pytorch/pytorch:1.6.0-cuda10.1-cudnn7-devel /bin/bash
 ```
 
-创建出来一个tomzhai_pytorcj_gpu容器，方便ssh远程登陆查看等等。进入容器，查看pytorch版本以及是否使用gpu等等。
+创建出来一个tomzhai_pytorch_gpu容器，方便ssh远程登陆查看等等。进入容器，查看pytorch版本以及是否使用gpu等等。
 
 ```
 root@1dc0653f1e3f:/workspace# python
