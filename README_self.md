@@ -79,7 +79,7 @@ service ssh restart
 passwd root
 ```
 
-使用pycharm打开这个工程，并设置解释器和deploy路径。#references)
+使用pycharm打开这个工程，并设置解释器和deploy路径。在dgx服务器上的路径为/data/tomzhai/face_detect/Pytorch_Retinaface。
 
 ## Installation
 ##### Clone and install
